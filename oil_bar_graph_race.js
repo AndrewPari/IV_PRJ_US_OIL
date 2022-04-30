@@ -21,7 +21,7 @@ d3.json("./data.json").then((data) => {
 
     //create an svg g element and add 50px of padding
     const chart = svg.append("g")
-        .attr("transform", `translate(50, 50)`);
+        .attr("transform", `translate(65, 65)`);
 
 
     var x = d3.scaleBand()
@@ -75,7 +75,16 @@ d3.json("./data.json").then((data) => {
         .style("color", "white")
         .call(
             d3.axisLeft(y).ticks(10).tickSize(-width - 10)
-        ).call((g) => g.select(".domain").remove()); //Optional: remove the axis endpoints
+    ).call((g) => g.select(".domain").remove()); //Optional: remove the axis endpoints
+
+    chart.append("g")
+        .append("text")
+        .attr("transform", "rotate(-90)")
+        .attr("font-size", "20px")
+        .attr("y", -50)
+        .attr("x", -500)
+        .attr("stroke", "black")
+        .text("Thousands of Barrels of Oil");
 
 
 
