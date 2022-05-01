@@ -41,109 +41,69 @@ d3.json("./data2.json").then((data) => {
         .range(["red", "white", "blue"]);
 
 
-    //copy below and add world facts nd shit
-    worldInfo = chart.append("g")
-        .append("text")
-        .attr("font-size", "36px")
-        .attr("y", -17)
-        .attr("x", 1000)
+    //create legend
+    chart.append('circle')
+        .attr("cx", 1700)
+        .attr("cy", 130)
+        .attr("r", 25)
+        .style("fill", "red")
+
+    chart.append('circle')
+        .attr("cx", 1750)
+        .attr("cy", 130)
+        .attr("r", 25)
+        .style("fill", "white")
+
+    chart.append('circle')
+        .attr("cx", 1800)
+        .attr("cy", 130)
+        .attr("r", 25)
+        .style("fill", "blue")
+
+    chart.append("text")
+        .attr("font-size", "24px")
+        .attr("y", 60)
+        .attr("x", 1500)
         .attr("stroke", "black")
-        .text("")
-        .transition()
-        .duration(5000)
-        .text("EU established, Russia withdraws from Poland")
-        .transition()
-        .duration(5000)
-        .text("US oil imports begin a steady increase will last a decade")
-        .transition()
-        .duration(10000)
-        .text("Iraq agrees to oil-for-supplies agreement: sell $2Bil of oil every 6 months")
-        .transition()
-        .duration(5000)
-        .text("UN winds down Iraq investigation into WMDs")
-        .transition()
-        .duration(5000)
-        .text("1998")//nothing
-        .transition()
-        .duration(5000)
-        .text("Year: 1999")//nothing
-        .transition()
-        .duration(5000)
-        .text("Year: 2000")
-        .transition()
-        .duration(5000)
-        .text("9/11 terrorist attack, US invades middle east")
-        .transition()
-        .duration(5000)
-        .text("Year: 2002")
-        .transition()
-        .duration(5000)
-        .text("Year: 2003")
-        .transition()
-        .duration(5000)
-        .text("Year: 2004")
-        .transition()
-        .duration(5000)
-        .text("US oil imports peak at 5 Billion barrels")
-        .transition()
-        .duration(5000)
-        .text("Year: 2006")
-        .transition()
-        .duration(5000)
-        .text("Year: 2007")
-        .transition()
-        .duration(5000)
-        .text("Year: 2008")
-        .transition()
-        .duration(5000)
-        .text("Year: 2009")
-        .transition()
-        .duration(5000)
-        .text("Year: 2010")
-        .transition()
-        .duration(5000)
-        .text("Syrian civil war, which continues to this day")
-        .transition()
-        .duration(5000)
-        .text("Year: 2012")//nothing
-        .transition()
-        .duration(5000)
-        .text("Year: 2013")
-        .transition()
-        .duration(5000)
-        .text("Crimea declares independence, annexed by Russia")
-        .transition()
-        .duration(5000)
-        .text("Year: 2015")
-        .transition()
-        .duration(5000)
-        .text("Year: 2016")
-        .transition()
-        .duration(5000)
-        .text("Year: 2017")
-        .transition()
-        .duration(5000)
-        .text("Venezuela election result challenged by many countries, deemed fraudulent")
-        .transition()
-        .duration(5000)
-        .text("US imposes total economic embargo on Venezuela in August") //whats shown is the oil bought prior to the embargo
-        .transition()
-        .duration(5000)
-        .text("UK withdraws from EU") //immediate drop to about 60% of last years
-        .transition()
-        .duration(5000)
-        .text("Taliban take over Afghanistan government")
+        .text("Democracy index scores: Authoritarian - Democratic")
 
+    chart.append("text")
+        .attr("font-size", "36px")
+        .attr("y", 98)
+        .attr("x", 1690)
+        .attr("stroke", "red")
+        .attr("fill", "red")
+        .text("0")
+    chart.append("text")
+        .attr("font-size", "36px")
+        .attr("y", 98)
+        .attr("x", 1742)
+        .attr("stroke", "white")
+        .attr("fill", "white")
+        .text("5")
+    chart.append("text")
+        .attr("font-size", "36px")
+        .attr("y", 98)
+        .attr("x", 1777)
+        .attr("stroke", "blue")
+        .attr("fill", "blue")
+        .text("10")
 
+    //no democracy score
+    chart.append("text")
+        .attr("font-size", "28px")
+        .attr("y", 95)
+        .attr("x", 1600)
+        .attr("stroke", "black")
+        .text("no info")
+    chart.append('circle')
+        .attr("cx", 1650)
+        .attr("cy", 130)
+        .attr("r", 25)
+        .style("fill", "black")
+    
 
-
-
-
-
-
-
-
-    //function that places & updates year text on screen
+    //places & updates year text on screen
     theYear = chart.append("g")
         .append("text")
         .attr("font-size", "48px")
@@ -241,10 +201,6 @@ d3.json("./data2.json").then((data) => {
         
 
 
-
-
-
-
     //create & update the bars
     bars = chart.append('g')
         .selectAll(".rect")
@@ -258,14 +214,10 @@ d3.json("./data2.json").then((data) => {
             if (d.Score) return blues(d.Score);
             return 'black'
         })
-
         .transition()
         .duration(1000) //apply transition from above to below over XXXX milliseconds
         .attr("y", function (d) { return y(d.ninetyfour); }) //new attribute to be drawing off of
         .attr("height", function (d) { return height - y(d.ninetyfour); })
-
-
-        //animate & update
         .transition()
         .duration(5000) //apply transition from above to below over XXXX milliseconds
         .attr("y", function (d) { return y(d.ninetyfive); }) //new attribute to be drawing off of
@@ -436,12 +388,71 @@ d3.json("./data2.json").then((data) => {
         .attr("stroke", "black")
         .text("Thousands of Barrels of Oil");
 
-
+    //adds geopolitical events
+    worldInfo = chart.append("g")
+        .append("text")
+        .attr("font-size", "36px")
+        .attr("y", 55)
+        .attr("x", 50)
+        .attr("stroke", "black")
+        .text("")
+        .transition()
+        .duration(5000)
+        .text("EU established, Russia withdraws from Poland")
+        .transition()
+        .duration(5000)
+        .text("US oil imports begin a steady increase will last a decade")
+        .transition()
+        .duration(10000)
+        .text("Iraq agrees to oil-for-supplies agreement: sell $2Bil of oil every 6 months")
+        .transition()
+        .duration(10000)
+        .text("UN winds down Iraq investigation into WMDs")
+        .transition()
+        .duration(10000)
+        .text("DotCom Bubble Crash")
+        .transition()
+        .duration(10000)
+        .text("9/11 terrorist attack, US invades middle east")
+        .transition()
+        .duration(5000)
+        .text("Year: 2003")//////////////////
+        .transition()
+        .duration(5000)
+        .text("Year: 2004")/////////////////
+        .transition()
+        .duration(5000)
+        .text("US oil imports peak at 5 Billion barrels")
+        .transition()
+        .duration(10000)
+        .text("Year: 2007")//06 & 07 info
+        .transition()
+        .duration(10000)
+        .text("Recession due to housing crisis")
+        .transition()
+        .duration(10000)
+        .text("Oil prices peak above $90/barrel, US Shale Oil Boom")
+        .transition()
+        .duration(10000)
+        .text("Syrian civil war begins, which continues to this day")
+        .transition()
+        .duration(10000)
+        .text("Crimea declares independence, annexed by Russia")
+        .transition()
+        .duration(5000)
+        .text("US lifts ban on exporting crude oil")
+        .transition()
+        .duration(5000)
+        .text("Venezuela election result challenged by many countries, deemed fraudulent")
+        .transition()
+        .duration(5000)
+        .text("US imposes total economic embargo on Venezuela in August") //whats shown is the oil bought prior to the embargo
+        .transition()
+        .duration(5000)
+        .text("UK withdraws from EU") //immediate drop to about 60% of last years
+        .transition()
+        .duration(5000)
+        .text("Taliban take over Afghanistan government")
 
 
 });
-
-
-
-
-
