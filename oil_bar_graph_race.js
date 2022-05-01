@@ -4,7 +4,7 @@ var width = 2000, height = 800
    
     
 //read in our json files
-d3.json("./data.json").then((data) => {
+d3.json("./data2.json").then((data) => {
 
     /*
     //filter out the nulls in price_usd
@@ -31,17 +31,221 @@ d3.json("./data.json").then((data) => {
 
 
     var y = d3.scaleLinear()
-        .domain([0, 600000])
+        .domain([0, 1600000])
         .range([height, 0]);
 
 
-
+    //color based on democracy score
     var blues = d3.scaleLinear()
         .domain([0,5,10])
         .range(["red", "white", "blue"]);
 
 
+    //copy below and add world facts nd shit
+    worldInfo = chart.append("g")
+        .append("text")
+        .attr("font-size", "36px")
+        .attr("y", -17)
+        .attr("x", 1000)
+        .attr("stroke", "black")
+        .text("")
+        .transition()
+        .duration(5000)
+        .text("EU established, Russia withdraws from Poland")
+        .transition()
+        .duration(5000)
+        .text("US oil imports begin a steady increase will last a decade")
+        .transition()
+        .duration(10000)
+        .text("Iraq agrees to oil-for-supplies agreement: sell $2Bil of oil every 6 months")
+        .transition()
+        .duration(5000)
+        .text("UN winds down Iraq investigation into WMDs")
+        .transition()
+        .duration(5000)
+        .text("1998")//nothing
+        .transition()
+        .duration(5000)
+        .text("Year: 1999")//nothing
+        .transition()
+        .duration(5000)
+        .text("Year: 2000")
+        .transition()
+        .duration(5000)
+        .text("9/11 terrorist attack, US invades middle east")
+        .transition()
+        .duration(5000)
+        .text("Year: 2002")
+        .transition()
+        .duration(5000)
+        .text("Year: 2003")
+        .transition()
+        .duration(5000)
+        .text("Year: 2004")
+        .transition()
+        .duration(5000)
+        .text("US oil imports peak at 5 Billion barrels")
+        .transition()
+        .duration(5000)
+        .text("Year: 2006")
+        .transition()
+        .duration(5000)
+        .text("Year: 2007")
+        .transition()
+        .duration(5000)
+        .text("Year: 2008")
+        .transition()
+        .duration(5000)
+        .text("Year: 2009")
+        .transition()
+        .duration(5000)
+        .text("Year: 2010")
+        .transition()
+        .duration(5000)
+        .text("Syrian civil war, which continues to this day")
+        .transition()
+        .duration(5000)
+        .text("Year: 2012")//nothing
+        .transition()
+        .duration(5000)
+        .text("Year: 2013")
+        .transition()
+        .duration(5000)
+        .text("Crimea declares independence, annexed by Russia")
+        .transition()
+        .duration(5000)
+        .text("Year: 2015")
+        .transition()
+        .duration(5000)
+        .text("Year: 2016")
+        .transition()
+        .duration(5000)
+        .text("Year: 2017")
+        .transition()
+        .duration(5000)
+        .text("Venezuela election result challenged by many countries, deemed fraudulent")
+        .transition()
+        .duration(5000)
+        .text("US imposes total economic embargo on Venezuela in August") //whats shown is the oil bought prior to the embargo
+        .transition()
+        .duration(5000)
+        .text("UK withdraws from EU") //immediate drop to about 60% of last years
+        .transition()
+        .duration(5000)
+        .text("Taliban take over Afghanistan government")
 
+
+
+
+
+
+
+
+
+
+    //function that places & updates year text on screen
+    theYear = chart.append("g")
+        .append("text")
+        .attr("font-size", "48px")
+        .attr("y", -15)
+        .attr("x", 0)
+        .attr("stroke", "black")
+        .text("Year: 1993")
+        .transition()
+        .duration(5000)
+        .text("Year: 1993")
+        .transition()
+        .duration(5000)
+        .text("Year: 1994")
+        .transition()
+        .duration(5000)
+        .text("Year: 1995")
+        .transition()
+        .duration(5000)
+        .text("Year: 1996")
+        .transition()
+        .duration(5000)
+        .text("Year: 1997")
+        .transition()
+        .duration(5000)
+        .text("Year: 1998")
+        .transition()
+        .duration(5000)
+        .text("Year: 1999")
+        .transition()
+        .duration(5000)
+        .text("Year: 2000")
+        .transition()
+        .duration(5000)
+        .text("Year: 2001")
+        .transition()
+        .duration(5000)
+        .text("Year: 2002")
+        .transition()
+        .duration(5000)
+        .text("Year: 2003")
+        .transition()
+        .duration(5000)
+        .text("Year: 2004")
+        .transition()
+        .duration(5000)
+        .text("Year: 2005")
+        .transition()
+        .duration(5000)
+        .text("Year: 2006")
+        .transition()
+        .duration(5000)
+        .text("Year: 2007")
+        .transition()
+        .duration(5000)
+        .text("Year: 2008")
+        .transition()
+        .duration(5000)
+        .text("Year: 2009")
+        .transition()
+        .duration(5000)
+        .text("Year: 2010")
+        .transition()
+        .duration(5000)
+        .text("Year: 2011")
+        .transition()
+        .duration(5000)
+        .text("Year: 2012")
+        .transition()
+        .duration(5000)
+        .text("Year: 2013")
+        .transition()
+        .duration(5000)
+        .text("Year: 2014")
+        .transition()
+        .duration(5000)
+        .text("Year: 2015")
+        .transition()
+        .duration(5000)
+        .text("Year: 2016")
+        .transition()
+        .duration(5000)
+        .text("Year: 2017")
+        .transition()
+        .duration(5000)
+        .text("Year: 2018")
+        .transition()
+        .duration(5000)
+        .text("Year: 2019")
+        .transition()
+        .duration(5000)
+        .text("Year: 2020")
+        .transition()
+        .duration(5000)
+        .text("Year: 2021")
+        
+
+
+
+
+
+
+    //create & update the bars
     bars = chart.append('g')
         .selectAll(".rect")
         .data(oil)
@@ -52,10 +256,154 @@ d3.json("./data.json").then((data) => {
         .attr("height", function (d) { return height - y(d.ninetythree); })
         .attr("fill", function (d) {
             if (d.Score) return blues(d.Score);
-            return 'black' })
+            return 'black'
+        })
+
+        .transition()
+        .duration(1000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.ninetyfour); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.ninetyfour); })
 
 
-    //add axes
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.ninetyfive); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.ninetyfive); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.ninetysix); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.ninetysix); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.ninetyseven); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.ninetyseven); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.ninetyeight); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.ninetyeight); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.ninetynine); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.ninetynine); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.zero); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.zero); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.one); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.one); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.two); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.two); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.three); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.three); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.four); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.four); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.five); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.five); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.six); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.six); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.seven); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.seven); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.eight); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.eight); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.nine); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.nine); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.ten); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.ten); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.eleven); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.eleven); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.twelve); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.twelve); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.thirteen); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.thirteen); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.fourteen); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.fourteen); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.fifteen); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.fifteen); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.sixteen); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.sixteen); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.seventeen); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.seventeen); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.eighteen); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.eighteen); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.nineteen); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.nineteen); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.twenty); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.twenty); })
+        //animate & update
+        .transition()
+        .duration(5000) //apply transition from above to below over XXXX milliseconds
+        .attr("y", function (d) { return y(d.twentyone); }) //new attribute to be drawing off of
+        .attr("height", function (d) { return height - y(d.twentyone); })
+
+
+
+    //x axis, rotate text
     chart.append("g")
         .attr("transform", "translate(0," + (height) + ")") //put our axis on the bottom
         .call(
@@ -66,17 +414,19 @@ d3.json("./data.json").then((data) => {
         .style("color", "white")
         .attr("dx", "-.8em")
         .attr("dy", ".15em")
-        .attr("font-size", "12px")
+        .attr("font-size", "16px")
         .attr("transform", function (d) {
-            return "rotate(-65)"
+            return "rotate(-55)"
         });
 
+    //y axis, ticks for horizontal lines
     chart.append("g")
         .style("color", "white")
         .call(
             d3.axisLeft(y).ticks(10).tickSize(-width - 10)
     ).call((g) => g.select(".domain").remove()); //Optional: remove the axis endpoints
 
+    //y axis text
     chart.append("g")
         .append("text")
         .attr("transform", "rotate(-90)")
@@ -90,5 +440,8 @@ d3.json("./data.json").then((data) => {
 
 
 });
+
+
+
 
 
