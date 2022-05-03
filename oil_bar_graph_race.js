@@ -397,11 +397,8 @@ d3.json("./data2.json").then((data) => {
         .attr("stroke", "black")
         .text("")
         .transition()
-        .duration(5000)
+        .duration(10000)
         .text("EU established, Russia withdraws from Poland")
-        .transition()
-        .duration(5000)
-        .text("US oil imports begin a steady increase will last a decade")
         .transition()
         .duration(10000)
         .text("Iraq agrees to oil-for-supplies agreement: sell $2Bil of oil every 6 months")
@@ -448,5 +445,24 @@ d3.json("./data2.json").then((data) => {
         .duration(5000)
         .text("Taliban take over Afghanistan government")
 
+
+    bars //let’s attach an event listener to points (all svg circles)
+        .on('mouseover', (event, d) => { //when mouse is over point
+            d3.select(event.currentTarget) //add a stroke to highlighted point 
+                .style("stroke", "black");
+
+            d3.select('chart') // add text inside the tooltip div
+                .style('display', 'block') //make it visible
+                .html(`
+                        <h1 class="DEMO SCORE"></h1>
+                       
+               `);//<h1 class="DEMO SCORE">${d.score}</h1>
+        })
+        .on('mouseleave', (event) => {  //when mouse isn’t over point
+            d3.select('#tooltip').style('display', 'none'); // hide tooltip
+            d3.select(event.currentTarget) //remove the stroke from point
+                .style("stroke", "none");
+
+        });
 
 });
